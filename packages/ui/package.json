@@ -48,8 +48,6 @@
     "expo-font": "^9.2.1"
   },
   "dependencies": {
-    "@expo-google-fonts/inter": "0.2.0",
-    "@expo-google-fonts/manrope": "0.2.0",
     "color": "^4.0.1"
   }
 }
