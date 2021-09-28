@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import { StyleProp, TextStyle, ViewStyle, Text, Pressable, GestureResponderEvent, StyleSheet } from 'react-native';
 import { colors } from '../styles/index';
 
-interface IButtonProps {
+export interface IButtonProps {
     onPress?: (event: GestureResponderEvent) => void
     accessibilityLabel?: string;
     disabled?: boolean;
@@ -31,7 +31,12 @@ interface IButtonProps {
     /**
      * Can be a React Element, or a string.
      */
-    chidren?: JSX.Element | string;
+    children?: JSX.Element | string;
+
+    /**
+     * Button's text. Can use a children element instead.
+     */
+    text?: string;
 }
 
 /**
@@ -87,10 +92,14 @@ export default class Button extends PureComponent<IButtonProps, {}> {
     }
 
     private Content = () => {
-        const { children, textStyle, bold } = this.props;
+        const { children, text, textStyle, bold } = this.props;
 
-        if (typeof(children) === 'string') {
+        if (children !== undefined && typeof(children) === 'string') {
             return <Text style={[styles({textColor: this.textColor(), bold}).text, textStyle]}>{children}</Text>
+        } else if (text !== undefined) {
+            return <Text style={[styles({textColor: this.textColor(), bold}).text, textStyle]}>{text}</Text>
+        } else if (children === undefined) {
+            return null;
         }
         return children as JSX.Element;
     }
