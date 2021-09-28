@@ -9,9 +9,9 @@ export default function HomeScreen(props: { navigation?: NavigationProp<any, any
     const [items, setItems] = React.useState([
     { name: 'BUTTON', code: '#1abc9c', screen: 'Button' },
     { name: 'INPUT', code: '#2ecc71', screen: 'Input' },
-    // { name: 'PETER RIVER', code: '#3498db' },
-    // { name: 'AMETHYST', code: '#9b59b6' },
-    // { name: 'WET ASPHALT', code: '#34495e' },
+    { name: 'MODAL', code: '#9b59b6', screen: 'Modal' },
+    { name: 'TYPOGRAPHY', code: '#34495e', screen: 'Typography' },
+    { name: 'ICONS', code: '#3498db', screen: 'Icons' },
     // { name: 'GREEN SEA', code: '#16a085' },
     // { name: 'NEPHRITIS', code: '#27ae60' },
     // { name: 'BELIZE HOLE', code: '#2980b9' },
