@@ -10,6 +10,7 @@ import InputScreen from './screens/Input';
 import IconsScreen from './screens/Icons';
 import ModalScreen from './screens/Modal';
 import TypographyScreen from './screens/Typography';
+import SelectScreen from './screens/Select';
 
 const Stack = createNativeStackNavigator();
 
@@ -27,6 +28,7 @@ export default function App() {
           <Stack.Screen name="Home" component={HomeScreen} />
           <Stack.Screen name="Button" component={ButtomScreen} />
           <Stack.Screen name="Input" component={InputScreen} />
+          <Stack.Screen name="Select" component={SelectScreen} />
           <Stack.Screen name="Modal" component={ModalScreen} />
           <Stack.Screen name="Typography" component={TypographyScreen} />
           <Stack.Screen name="Icons" component={IconsScreen} />
