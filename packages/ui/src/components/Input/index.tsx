@@ -11,9 +11,10 @@ import {
     ViewStyle,
     TextStyle,
 } from 'react-native';
+import Body, { bodyStyle } from '../../typography/Body';
 import { colors } from '../styles/index';
 
-interface IInputProps extends TextInputProps {
+export interface IInputProps extends TextInputProps {
     label?: string;
     onPressHelp?: (event: GestureResponderEvent) => void;
     containerStyle?: StyleProp<ViewStyle>;
@@ -21,6 +22,7 @@ interface IInputProps extends TextInputProps {
     style?: StyleProp<TextStyle>;
     labelStyle?: StyleProp<TextStyle>;
     error?: string;
+    rightContent?: JSX.Element | string;
 }
 export default class Input extends PureComponent<IInputProps, {}> {
     constructor(props: any) {
@@ -35,29 +37,49 @@ export default class Input extends PureComponent<IInputProps, {}> {
                 <View style={[
                     containerStyle,
                     {
+                        paddingHorizontal: 16,
+                        paddingVertical: 12,
                         height: multiline ? 115 : undefined, // TODO: edit this once we need different sizes
                     }
                 ]}>
-                    <View
-                        style={[
-                            styles({}).outline,
-                            {
-                                borderColor: error
-                                    ? colors.ui.error
-                                    : colors.brand.secondary,
-                            },
-                        ]}
-                    />
+                    <View style={styles({error: error?.length > 0}).outline} />
                     <this.Label />
-                    <TextInput
-                        {...this.props}
-                        style={[styles({}).textInput, style]}
-                        placeholderTextColor={colors.text.secondary}
-                    />
+                    <View style={{
+                        flexDirection: 'row',
+                        alignItems: 'center',
+                        justifyContent: 'space-between',
+                    }}>
+                        <TextInput
+                            {...this.props}
+                            style={[
+                                bodyStyle(),
+                                styles({ multiline }).textInput, 
+                                {
+                                    // react-native text input doesn't handle line height very well
+                                    // so we make undefined and replace with height
+                                    height: multiline ? 115 : 24, 
+                                    lineHeight: undefined
+                                },
+                                style
+                            ]}
+                            placeholderTextColor={colors.text.secondary}
+                        />
+                        <this.Right />
+                    </View>
                 </View>
                 <this.Error />
             </View>
         );
+    }
+
+    private Right = () => {
+        const { rightContent } = this.props;
+        if (typeof(rightContent) === 'string') {
+            return <Body variant="small" style={{ color: colors.brand.secondary }}>{rightContent}</Body>;
+        } else if (rightContent) {
+            return rightContent;
+        }
+        return null;
     }
 
     private Label = () => {
@@ -66,15 +88,7 @@ export default class Input extends PureComponent<IInputProps, {}> {
             const Help = () => {
                 if (onPressHelp) {
                     return <Pressable onPress={onPressHelp} hitSlop={20}>
-                        <Text
-                            style={{
-                                color: colors.brand.primary,
-                                fontSize: 12,
-                                paddingLeft: 3,
-                            }}
-                        >
-                            [?]
-                        </Text>
+                        <Body variant="small" style={{ paddingLeft: 3, color: colors.brand.primary }}>[?]</Body>
                     </Pressable>
                 }
                 return null;
@@ -82,9 +96,7 @@ export default class Input extends PureComponent<IInputProps, {}> {
 
             return (
                 <View style={[styles({}).labelView, containerLabelStyle]}>
-                    <Text style={[styles({}).labelText, labelStyle]} >
-                        {label}
-                    </Text>
+                    <Body variant="small" style={[{ color: colors.brand.secondary }, labelStyle]}>{label}</Body>
                     <Help/>
                 </View>
             )
@@ -94,18 +106,11 @@ export default class Input extends PureComponent<IInputProps, {}> {
 
     private Error = () => {
         const { error} = this.props;
-        if (error) {
-            return <Text
-                style={styles({}).errorText}
-            >
-                {error}
-            </Text>;
-        }
-        return null;
+        return error ? <Body variant="small" style={[{ color: colors.ui.error, paddingTop: 2 }]}>{error}</Body> : null;
     }
 }
 
-const styles = (props: {multiline?: boolean}) => StyleSheet.create({
+const styles = (props: { multiline?: boolean, error?:boolean }) => StyleSheet.create({
     outline: {
         position: 'absolute',
         left: 0,
@@ -113,20 +118,16 @@ const styles = (props: {multiline?: boolean}) => StyleSheet.create({
         top: 0,
         bottom: 0,
         flexDirection: 'row',
-        paddingHorizontal: 16,
-        paddingTop: 16,
-        paddingBottom: 12,
         borderRadius: 6,
         borderWidth: 0.5,
+        borderColor:props.error
+            ? colors.ui.error
+            : colors.brand.secondary,
     },
     textInput: {
-        height: props.multiline ? 115 : undefined, // TODO: edit this once we need different sizes
-        minHeight: 38,
-        paddingHorizontal: 10,
-        marginVertical: 5,
+        alignSelf: 'center',
         zIndex: 1,
-        fontSize: 15,
-        fontFamily: 'Inter_400Regular',
+        flex: 1,
         color: colors.text.primary,
         textAlignVertical: props.multiline
             ? 'top'
@@ -135,24 +136,11 @@ const styles = (props: {multiline?: boolean}) => StyleSheet.create({
     labelView: {
         position: 'absolute',
         left: 12,
-        top: -8,
+        top: -10,
         paddingHorizontal: 4,
         backgroundColor: '#FFFFFF',
         zIndex: 1,
         alignItems: 'center',
         flexDirection: 'row',
     },
-    labelText: {
-        fontFamily: 'Inter_400Regular',
-        color: colors.text.secondary,
-        fontSize: 12,
-        lineHeight: 14,
-    },
-    errorText: {
-        color: '#EB5757',
-        fontSize: 12,
-        lineHeight: 20,
-        fontFamily: 'Inter_400Regular',
-        alignSelf: 'flex-start',
-    }
 });
