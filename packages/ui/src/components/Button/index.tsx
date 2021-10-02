@@ -1,7 +1,6 @@
 import React, { PureComponent } from 'react';
 import { StyleProp, TextStyle, ViewStyle, Text, Pressable, GestureResponderEvent, StyleSheet, View } from 'react-native';
 import { colors } from '../styles/index';
-import Color from 'color';
 import Body from '../../typography/Body';
 
 export interface IButtonProps {
@@ -62,7 +61,7 @@ export default class Button extends PureComponent<IButtonProps, {}> {
         const { onPress, style, disabled } = this.props;
         return (
             <Pressable
-                style={[styles({ buttonColor: this.buttomColor() }).container, style]}
+                style={[styles({ buttonColor: this.buttomColor(), disabled }).container, style]}
                 onPress={onPress}
                 disabled={disabled}
             >
@@ -84,7 +83,7 @@ export default class Button extends PureComponent<IButtonProps, {}> {
                 color = 'transparent';
                 break;
         }
-        return this.props.disabled ? Color(color).alpha(0.5).string() : color;
+        return color;
     }
 
     private textColor() {
@@ -114,9 +113,10 @@ export default class Button extends PureComponent<IButtonProps, {}> {
     }
 }
 
-const styles = (props: { buttonColor?: string, bold?: boolean, textColor?: string }) => StyleSheet.create({
+const styles = (props: { buttonColor?: string, bold?: boolean, disabled?: boolean, textColor?: string }) => StyleSheet.create({
     container: {
         backgroundColor: props.buttonColor,
+        opacity: props.disabled ? 0.5 : 1,
         borderRadius: 6,
         paddingVertical: 8,
         paddingHorizontal: 23,
