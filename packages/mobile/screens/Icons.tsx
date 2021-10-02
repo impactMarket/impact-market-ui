@@ -1,14 +1,17 @@
-import { CloseIcon, Input } from '@impact-market/ui'
+import { CloseIcon, colors, HackerIcon, Input } from '@impact-market/ui'
 import React from 'react'
-import { ScrollView, Alert } from 'react-native'
-import { useTheme } from '@react-navigation/native';
-import Example from '../components/Example';
+import { ScrollView, View } from 'react-native'
 
 export default function IconsScreen() {
-    const { colors } = useTheme();
     return (
-        <ScrollView style={{paddingHorizontal: 20, paddingTop: 20}}>
+        <ScrollView style={{ paddingHorizontal: 20, paddingTop: 20 }}>
             <CloseIcon />
+            <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                <HackerIcon hasBackground />
+                <HackerIcon />
+                <HackerIcon color={colors.ui.error} />
+                <HackerIcon height={20} color={colors.ui.error} />
+            </View>
         </ScrollView>
     )
 }

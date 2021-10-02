@@ -1,3 +1,4 @@
 import CloseIcon from "./CloseIcon";
+import HackerIcon from "./HackerIcon";
 
-export {CloseIcon};
+export {CloseIcon, HackerIcon};
