@@ -11,6 +11,7 @@ export default function HomeScreen(props: { navigation?: NavigationProp<any, any
     { name: 'INPUT', code: '#2ecc71', screen: 'Input' },
     { name: 'SELECT', code: '#f1c40f', screen: 'Select' },
     { name: 'MODAL', code: '#9b59b6', screen: 'Modal' },
+    { name: 'PILL', code: '#d35400', screen: 'Pill' },
     { name: 'TYPOGRAPHY', code: '#34495e', screen: 'Typography' },
     { name: 'ICONS', code: '#3498db', screen: 'Icons' },
     // { name: 'GREEN SEA', code: '#16a085' },
