@@ -18,9 +18,13 @@ export default class Select extends Component<ISelectProps, {}> {
     }
 
     render() {
+        // editable={false} makes the input editable, which allows to use the outside Pressable
+        // although, that results in some dead areas on iOS.
+        // To solve that issue with iOS, pointerEvents="none" is added. This is not used alone,
+        // since it behaves differently in android, and needs to be in an outside view
         return (
-            <Pressable onPress={this.props.onPress} hitSlop={20}>
-                <Input pointerEvents="none" {...this.props} rightContent={
+            <Pressable onPress={this.props.onPress}>
+                <Input {...this.props} pointerEvents="none" editable={false} rightContent={
                     <View style={{ alignSelf: 'center' }}>
                         <ArrowIcon direction='down' color={colors.brand.secondary} />
                     </View>
