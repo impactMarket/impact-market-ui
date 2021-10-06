@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import { StyleProp, TextStyle, ViewStyle, Text, Pressable, GestureResponderEvent, StyleSheet, View } from 'react-native';
 import { colors } from '../styles/index';
-import Body from '../../typography/Body';
+import ButtonText from '../../typography/ButtonText';
 
 export interface IButtonProps {
     onPress?: (event: GestureResponderEvent) => void
@@ -103,9 +103,9 @@ export default class Button extends PureComponent<IButtonProps, {}> {
         const { children, text, textStyle, bold } = this.props;
 
         if (children !== undefined && typeof (children) === 'string') {
-            return <Body style={[styles({ textColor: this.textColor(), bold }).text, textStyle]}>{children}</Body>
+            return <ButtonText style={[styles({ textColor: this.textColor(), bold }).text, textStyle]}>{children}</ButtonText>
         } else if (text !== undefined) {
-            return <Body style={[styles({ textColor: this.textColor(), bold }).text, textStyle]}>{text}</Body>
+            return <ButtonText style={[styles({ textColor: this.textColor(), bold }).text, textStyle]}>{text}</ButtonText>
         } else if (children === undefined) {
             return null;
         }
