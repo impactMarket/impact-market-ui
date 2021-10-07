@@ -5,7 +5,7 @@ import Example from '../components/Example'
 
 export default function PillScreen() {
     return (
-        <View style={{ paddingHorizontal: 20, paddingTop: 20 }}>
+        <ScrollView style={{ paddingHorizontal: 20, paddingTop: 20 }}>
             <Example description="A simple pill">
                 <Pill>Example</Pill>
             </Example>
@@ -19,6 +19,6 @@ export default function PillScreen() {
                     </View>
                 }>Example</Pill>
             </Example>
-        </View>
+        </ScrollView>
     )
 }

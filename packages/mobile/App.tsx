@@ -12,6 +12,7 @@ import ModalScreen from './screens/Modal';
 import TypographyScreen from './screens/Typography';
 import SelectScreen from './screens/Select';
 import PillScreen from './screens/Pill';
+import NUXScreen from './screens/NUX';
 
 const Stack = createNativeStackNavigator();
 
@@ -32,6 +33,7 @@ export default function App() {
           <Stack.Screen name="Select" component={SelectScreen} />
           <Stack.Screen name="Modal" component={ModalScreen} />
           <Stack.Screen name="Pill" component={PillScreen} />
+          <Stack.Screen name="NUX" component={NUXScreen} />
           <Stack.Screen name="Typography" component={TypographyScreen} />
           <Stack.Screen name="Icons" component={IconsScreen} />
         </Stack.Navigator>
