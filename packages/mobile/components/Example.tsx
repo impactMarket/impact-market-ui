@@ -1,4 +1,4 @@
-import { colors } from '@impact-market/ui'
+import { colors } from '@impact-market/ui-kit'
 import React from 'react'
 import { View, Text } from 'react-native'
 

@@ -3,7 +3,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { useFonts } from '@expo-google-fonts/inter';
 import {Host} from 'react-native-portalize';
-import { fontMap } from '@impact-market/ui';
+import { fontMap } from '@impact-market/ui-kit';
 import HomeScreen from './screens/Home';
 import ButtomScreen from './screens/Button';
 import InputScreen from './screens/Input';

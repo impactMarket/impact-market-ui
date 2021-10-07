@@ -1,4 +1,4 @@
-import { colors, NUX } from '@impact-market/ui'
+import { colors, NUX } from '@impact-market/ui-kit'
 import React from 'react'
 import { ScrollView, Alert, View, Text } from 'react-native'
 import Example from '../components/Example'

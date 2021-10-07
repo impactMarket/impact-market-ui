@@ -1,4 +1,4 @@
-import { Body, Button, colors, HackerIcon, Select } from '@impact-market/ui'
+import { Body, Button, colors, HackerIcon, Select } from '@impact-market/ui-kit'
 import { useTheme } from '@react-navigation/native';
 import React from 'react'
 import { ScrollView, Alert, View } from 'react-native'

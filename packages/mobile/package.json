@@ -11,7 +11,7 @@
     "postinstall": "expo-yarn-workspaces postinstall"
   },
   "dependencies": {
-    "@impact-market/ui": "*",
+    "@impact-market/ui-kit": "*",
     "@react-navigation/native": "6.0.2",
     "@react-navigation/native-stack": "6.1.0",
     "expo": "~42.0.1",

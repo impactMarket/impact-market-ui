@@ -1,4 +1,4 @@
-import { HackerIcon, Input } from '@impact-market/ui'
+import { HackerIcon, Input } from '@impact-market/ui-kit'
 import React from 'react'
 import { ScrollView, Alert, View } from 'react-native'
 import { useTheme } from '@react-navigation/native';

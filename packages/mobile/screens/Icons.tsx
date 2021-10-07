@@ -1,4 +1,4 @@
-import { CloseIcon, colors, HackerIcon, Input } from '@impact-market/ui'
+import { CloseIcon, colors, HackerIcon, Input } from '@impact-market/ui-kit'
 import React from 'react'
 import { ScrollView, View } from 'react-native'
 

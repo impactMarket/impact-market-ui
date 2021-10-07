@@ -1,4 +1,4 @@
-import { Button, Modal, Body } from '@impact-market/ui'
+import { Button, Modal, Body } from '@impact-market/ui-kit'
 import React, { useState } from 'react'
 import { ScrollView, Text } from 'react-native'
 import { useTheme } from '@react-navigation/native';

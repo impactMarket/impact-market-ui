@@ -1,21 +1,24 @@
 {
-  "name": "@impact-market/ui",
+  "name": "@impact-market/ui-kit",
   "version": "0.0.1",
-  "main": "src/index.ts",
+  "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc"
   },
+  "files": [
+    "/dist"
+  ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/impactMarket/impact-market-ui.git"
+    "url": "git+https://github.com/impactMarket/ui-kit.git"
   },
   "author": "impact-market",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/impactMarket/impact-market-ui/issues"
+    "url": "https://github.com/impactMarket/ui-kit/issues"
   },
-  "homepage": "https://github.com/impactMarket/impact-market-ui#readme",
+  "homepage": "https://github.com/impactMarket/ui-kit#readme",
   "engines": {
     "node": "14.15.1"
   },

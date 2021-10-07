@@ -1,4 +1,4 @@
-import { Body, Button, colors, HackerIcon } from '@impact-market/ui'
+import { Body, Button, colors, HackerIcon } from '@impact-market/ui-kit'
 import React from 'react'
 import { ScrollView, Alert, View } from 'react-native'
 import Example from '../components/Example'

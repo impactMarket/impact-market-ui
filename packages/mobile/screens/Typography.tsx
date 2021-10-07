@@ -1,4 +1,4 @@
-import { Body, Title, Heading } from '@impact-market/ui'
+import { Body, Title, Heading } from '@impact-market/ui-kit'
 import React from 'react'
 import { ScrollView, Alert } from 'react-native'
 import { useTheme } from '@react-navigation/native';
