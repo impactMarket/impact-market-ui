@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { StyleProp, TextStyle, ViewStyle, Text, Pressable, GestureResponderEvent, StyleSheet, View } from 'react-native';
+import { StyleProp, TextStyle, ViewStyle, Text, Pressable, GestureResponderEvent, StyleSheet, View, ViewProps } from 'react-native';
 import { colors } from '../styles/index';
 import ButtonText from '../../typography/ButtonText';
 
@@ -12,12 +12,7 @@ export interface IButtonProps {
     /**
      * Button mode. Default is `default`.
      */
-    mode?: 'green' | 'gray' | 'text' | 'default';
-
-    /**
-     * Text bold font
-     */
-    bold?: boolean;
+    mode?: 'green' | 'gray' | 'text' | 'outlined' | 'default';
 
     /**
      * Button style
@@ -53,15 +48,23 @@ export interface IButtonProps {
  * ```
  */
 export default class Button extends PureComponent<IButtonProps, {}> {
-    constructor(props: any) {
+    constructor(props: IButtonProps) {
         super(props);
     }
 
     render() {
-        const { onPress, style, disabled } = this.props;
+        const { onPress, style, disabled, mode } = this.props;
+        let outlinedStyle: StyleProp<ViewStyle> = {};
+        if (mode === 'outlined') {
+            outlinedStyle = {
+                borderColor: colors.brand.primary,
+                borderWidth: 2,
+                borderStyle: 'solid'
+            }
+        }
         return (
             <Pressable
-                style={[styles({ buttonColor: this.buttomColor(), disabled }).container, style]}
+                style={[styles({ buttonColor: this.buttomColor(), disabled }).container, style, outlinedStyle]}
                 onPress={onPress}
                 disabled={disabled}
             >
@@ -80,6 +83,7 @@ export default class Button extends PureComponent<IButtonProps, {}> {
                 color = colors.background.secondary;
                 break;
             case 'text':
+            case 'outlined':
                 color = 'transparent';
                 break;
         }
@@ -93,6 +97,7 @@ export default class Button extends PureComponent<IButtonProps, {}> {
                 color = colors.text.primary;
                 break;
             case 'text':
+            case 'outlined':
                 color = colors.brand.primary;
                 break;
         }
@@ -100,12 +105,12 @@ export default class Button extends PureComponent<IButtonProps, {}> {
     }
 
     private Content = () => {
-        const { children, text, textStyle, bold } = this.props;
+        const { children, text, textStyle } = this.props;
 
         if (children !== undefined && typeof (children) === 'string') {
-            return <ButtonText style={[styles({ textColor: this.textColor(), bold }).text, textStyle]}>{children}</ButtonText>
+            return <ButtonText style={[styles({ textColor: this.textColor() }).text, textStyle]}>{children}</ButtonText>
         } else if (text !== undefined) {
-            return <ButtonText style={[styles({ textColor: this.textColor(), bold }).text, textStyle]}>{text}</ButtonText>
+            return <ButtonText style={[styles({ textColor: this.textColor() }).text, textStyle]}>{text}</ButtonText>
         } else if (children === undefined) {
             return null;
         }
@@ -113,7 +118,7 @@ export default class Button extends PureComponent<IButtonProps, {}> {
     }
 }
 
-const styles = (props: { buttonColor?: string, bold?: boolean, disabled?: boolean, textColor?: string }) => StyleSheet.create({
+const styles = (props: { buttonColor?: string, disabled?: boolean, textColor?: string }) => StyleSheet.create({
     container: {
         backgroundColor: props.buttonColor,
         opacity: props.disabled ? 0.5 : 1,
@@ -123,7 +128,6 @@ const styles = (props: { buttonColor?: string, bold?: boolean, disabled?: boolea
     },
     text: {
         color: props.textColor,
-        textAlign: 'center',
-        fontFamily: props.bold ? 'Inter_600SemiBold' : 'Inter_400Regular',
+        textAlign: 'center'
     }
 });
