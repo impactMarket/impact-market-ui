@@ -4,6 +4,7 @@ import Select from './Select';
 import Modal from './Modal';
 import Pill from './Pill';
 import NUX from './NUX';
+import Image from './Image';
 
 export {
     Button,
@@ -12,4 +13,5 @@ export {
     Modal,
     Pill,
     NUX,
+    Image,
 }
