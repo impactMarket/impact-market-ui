@@ -13,7 +13,7 @@ export default function HomeScreen(props: { navigation?: NavigationProp<any, any
     { name: 'MODAL', code: '#9b59b6', screen: 'Modal' },
     { name: 'IMAGE', code: '#95a5a6', screen: 'Image' },
     { name: 'PILL', code: '#d35400', screen: 'Pill' },
-    { name: 'NUX', code: '#2c3e50', screen: 'NUX' },
+    { name: 'LABEL', code: '#2c3e50', screen: 'Label' },
     { name: 'TYPOGRAPHY', code: '#34495e', screen: 'Typography' },
     { name: 'ICONS', code: '#3498db', screen: 'Icons' },
     // { name: 'GREEN SEA', code: '#16a085' },

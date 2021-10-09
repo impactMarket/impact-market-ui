@@ -4,7 +4,7 @@ import Body from '../../typography/Body';
 import StarIcon from '../../icons/StarIcon';
 import { colors } from '../styles';
 
-export default function NUX(props: { children?: JSX.Element | string, variant?: 'micro' | 'small', color?: string, star?: string }) {
+export default function Label(props: { children?: JSX.Element | string, variant?: 'micro' | 'small', color?: string, star?: string }) {
     const { children, variant = 'micro', color = colors.ui.error, star = null } = props;
 
     return (

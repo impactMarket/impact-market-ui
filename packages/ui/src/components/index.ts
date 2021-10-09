@@ -3,7 +3,7 @@ import Input from './Input';
 import Select from './Select';
 import Modal from './Modal';
 import Pill from './Pill';
-import NUX from './NUX';
+import Label from './Label';
 import Image from './Image';
 
 export {
@@ -12,6 +12,6 @@ export {
     Select,
     Modal,
     Pill,
-    NUX,
+    Label,
     Image,
 }
