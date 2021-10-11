@@ -13,7 +13,7 @@ export default function PillScreen() {
                 <Pill color={colors.background.dark}>Example</Pill>
             </Example>
             <Example description="A simple pill with icon">
-                <Pill right={
+                <Pill onPress={() => Alert.alert('Hello')} right={
                     <View style={{ marginLeft: 10 }}>
                         <ArrowIcon direction='down' color={colors.brand.secondary} />
                     </View>

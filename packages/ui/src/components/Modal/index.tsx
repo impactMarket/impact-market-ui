@@ -161,7 +161,7 @@ export default class Modal extends Component<IModalProps, IModalState> {
                                         onPress={onDismiss}
                                         testID="close-modal"
                                     >
-                                        <CloseIcon style={{ height: 33.6, width: 33.6 }} />
+                                        <CloseIcon hasBackground />
                                     </Pressable>
                                 )}
                             </View>
