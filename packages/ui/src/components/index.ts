@@ -5,6 +5,7 @@ import Modal from './Modal';
 import Pill from './Pill';
 import Label from './Label';
 import Image from './Image';
+import RadioButton from './RadioButton';
 
 export {
     Button,
@@ -14,4 +15,5 @@ export {
     Pill,
     Label,
     Image,
+    RadioButton
 }
