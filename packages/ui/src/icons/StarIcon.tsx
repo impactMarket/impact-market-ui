@@ -5,9 +5,10 @@ function StarIcon(props: { height?: number, width?: number, color?: string }) {
     const { height, width, color = "#FFC278" } = props;
     return (
         <Svg
-            width={width || "18"}
-            height={height || "17"}
+            width={width || 18}
+            height={height || 17}
             viewBox="0 0 18 17"
+            scale={width ? width / 18 : 1}
             fill="none"
         >
             <Path

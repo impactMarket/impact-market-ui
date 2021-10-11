@@ -5,9 +5,10 @@ function ImageIconError(props: { height?: number, width?: number }) {
     const { height, width } = props;
     return (
         <Svg
-            width={width || "24"}
-            height={height || "28"}
+            width={width || 24}
+            height={height || 28}
             viewBox="0 0 24 28"
+            scale={width ? width / 24 : 1}
             fill="none"
         >
             <Path
