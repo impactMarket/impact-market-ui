@@ -15,6 +15,7 @@ import PillScreen from './screens/Pill';
 import LabelScreen from './screens/Label';
 import ImageScreen from './screens/Image';
 import RadioButtonScreen from './screens/RadioButton';
+import SwitchScreen from './screens/Switch';
 
 const Stack = createNativeStackNavigator();
 
@@ -37,6 +38,7 @@ export default function App() {
           <Stack.Screen name="Image" component={ImageScreen} />
           <Stack.Screen name="Pill" component={PillScreen} />
           <Stack.Screen name="Label" component={LabelScreen} />
+          <Stack.Screen name="Switch" component={SwitchScreen} />
           <Stack.Screen name="RadioButton" component={RadioButtonScreen} />
           <Stack.Screen name="Typography" component={TypographyScreen} />
           <Stack.Screen name="Icons" component={IconsScreen} />

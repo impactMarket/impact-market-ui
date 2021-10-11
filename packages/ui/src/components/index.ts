@@ -6,6 +6,7 @@ import Pill from './Pill';
 import Label from './Label';
 import Image from './Image';
 import RadioButton from './RadioButton';
+import Switch from './Switch';
 
 export {
     Button,
@@ -15,5 +16,6 @@ export {
     Pill,
     Label,
     Image,
-    RadioButton
+    RadioButton,
+    Switch
 }
