@@ -7,6 +7,7 @@ import Label from './Label';
 import Image from './Image';
 import RadioButton from './RadioButton';
 import Switch from './Switch';
+import Checkbox from './Checkbox';
 
 export {
     Button,
@@ -17,5 +18,6 @@ export {
     Label,
     Image,
     RadioButton,
-    Switch
+    Switch,
+    Checkbox
 }

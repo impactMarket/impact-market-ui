@@ -6,7 +6,7 @@ import {
 } from 'react-native';
 import Input from '../Input';
 import ArrowIcon from '../../icons/ArrowIcon';
-import { IInputProps } from '../Input';
+import type { IInputProps } from '../Input';
 import { colors } from '../styles/index';
 
 interface ISelectProps extends IInputProps {
