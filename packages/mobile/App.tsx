@@ -17,6 +17,7 @@ import ImageScreen from './screens/Image';
 import RadioButtonScreen from './screens/RadioButton';
 import SwitchScreen from './screens/Switch';
 import CheckboxScreen from './screens/Checkbox';
+import ProgressBarScreen from './screens/ProgressBar';
 
 const Stack = createNativeStackNavigator();
 
@@ -42,6 +43,7 @@ export default function App() {
           <Stack.Screen name="Switch" component={SwitchScreen} />
           <Stack.Screen name="RadioButton" component={RadioButtonScreen} />
           <Stack.Screen name="Checkbox" component={CheckboxScreen} />
+          <Stack.Screen name="ProgressBar" component={ProgressBarScreen} />
           <Stack.Screen name="Typography" component={TypographyScreen} />
           <Stack.Screen name="Icons" component={IconsScreen} />
         </Stack.Navigator>

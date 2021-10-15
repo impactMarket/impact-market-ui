@@ -38,6 +38,9 @@ export default function ButtomScreen() {
                     </View>
                 </Button>
             </Example>
+            <Example description="A simple button with different height">
+                <Button style={{height: 52}} onPress={() => Alert.alert('Hello')}>Button</Button>
+            </Example>
         </ScrollView>
     )
 }

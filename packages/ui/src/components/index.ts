@@ -8,6 +8,7 @@ import Image from './Image';
 import RadioButton from './RadioButton';
 import Switch from './Switch';
 import Checkbox from './Checkbox';
+import ProgressBar from './ProgressBar';
 
 export {
     Button,
@@ -19,5 +20,6 @@ export {
     Image,
     RadioButton,
     Switch,
-    Checkbox
+    Checkbox,
+    ProgressBar
 }

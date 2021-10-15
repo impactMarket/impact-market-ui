@@ -125,6 +125,7 @@ const styles = (props: { buttonColor?: string, disabled?: boolean, textColor?: s
         borderRadius: 6,
         paddingVertical: 8,
         paddingHorizontal: 23,
+        justifyContent: 'center'
     },
     text: {
         color: props.textColor,
