@@ -1,12 +1,10 @@
 import { Button, Modal, Body } from '@impact-market/ui-kit'
 import React, { useState } from 'react'
-import { ScrollView, Text } from 'react-native'
-import { useTheme } from '@react-navigation/native';
+import { ScrollView } from 'react-native'
 import Example from '../components/Example';
 import { Portal } from 'react-native-portalize';
 
 export default function ModalScreen() {
-    const { colors } = useTheme();
     const [modalType, setModalType] = useState(-1);
     return (
         <>
@@ -19,6 +17,9 @@ export default function ModalScreen() {
                 </Example>
                 <Example description="Modal with close and two buttons not inline">
                     <Button onPress={() => setModalType(2)}>Open</Button>
+                </Example>
+                <Example description="Modal with close and no buttons">
+                    <Button onPress={() => setModalType(3)}>Open</Button>
                 </Example>
             </ScrollView>
             <Portal>
@@ -61,6 +62,15 @@ export default function ModalScreen() {
                             { text: 'None', mode: 'gray', onPress: () => setModalType(-1) }
                         ]
                     }}
+                >
+                    <Body>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vehicula sem dolor, et vehicula lectus scelerisque sed. Suspendisse elementum erat fringilla, ultrices nunc mattis, fermentum massa. Phasellus ac convallis felis. Aliquam malesuada pretium vehicula. Phasellus tincidunt imperdiet dui id scelerisque.
+                    </Body>
+                </Modal>
+                <Modal
+                    title="Lorem ipsum dolor"
+                    visible={modalType === 3}
+                    onDismiss={() => setModalType(-1)}
                 >
                     <Body>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vehicula sem dolor, et vehicula lectus scelerisque sed. Suspendisse elementum erat fringilla, ultrices nunc mattis, fermentum massa. Phasellus ac convallis felis. Aliquam malesuada pretium vehicula. Phasellus tincidunt imperdiet dui id scelerisque.

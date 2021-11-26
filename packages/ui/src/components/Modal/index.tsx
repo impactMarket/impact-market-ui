@@ -70,8 +70,8 @@ export default class Modal extends Component<IModalProps, IModalState> {
 
     Buttons = () => {
         const { buttons } = this.props;
-        const inlineButtonsStyle = buttons.inline ? { flex: 1 } : {};
         if (buttons) {
+            const inlineButtonsStyle = buttons.inline ? { flex: 1 } : {};
             return (
                 <View style={{ flexDirection: buttons.inline ? 'row' : 'column', justifyContent: 'space-between', marginTop: 22 }}>
                     {buttons.props.map((button, index) => <Button
@@ -92,7 +92,7 @@ export default class Modal extends Component<IModalProps, IModalState> {
     }
 
     render() {
-        const { visible, onDismiss, title, buttons, children } = this.props;
+        const { visible, onDismiss, title, children } = this.props;
         const { keyboardOpen, bottom, width } = this.state;
 
         // yeah, modals on iOS get hidden below the keyboard
