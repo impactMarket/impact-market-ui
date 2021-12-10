@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { StyleProp, TextStyle, ViewStyle, Text, Pressable, GestureResponderEvent, StyleSheet, View, ViewProps } from 'react-native';
+import { StyleProp, TextStyle, ViewStyle, Text, Pressable, GestureResponderEvent, StyleSheet, View, ViewProps, ActivityIndicator } from 'react-native';
 import { colors } from '../styles/index';
 import ButtonText from '../../typography/ButtonText';
 
@@ -7,6 +7,7 @@ export interface IButtonProps {
     onPress?: (event: GestureResponderEvent) => void
     accessibilityLabel?: string;
     disabled?: boolean;
+    loading?: boolean;
     testID?: string;
 
     /**
@@ -53,7 +54,7 @@ export default class Button extends PureComponent<IButtonProps, {}> {
     }
 
     render() {
-        const { onPress, style, disabled, mode } = this.props;
+        const { onPress, style, disabled, mode, loading } = this.props;
         let outlinedStyle: StyleProp<ViewStyle> = {};
         if (mode === 'outlined') {
             outlinedStyle = {
@@ -68,6 +69,7 @@ export default class Button extends PureComponent<IButtonProps, {}> {
                 onPress={onPress}
                 disabled={disabled}
             >
+                {loading && <ActivityIndicator size="small" color={this.textColor()} style={{marginRight: 8}}/>}
                 <this.Content />
             </Pressable>
         );
@@ -125,7 +127,9 @@ const styles = (props: { buttonColor?: string, disabled?: boolean, textColor?: s
         borderRadius: 6,
         paddingVertical: 8,
         paddingHorizontal: 23,
-        justifyContent: 'center'
+        justifyContent: 'center',
+        alignItems: 'center',
+        flexDirection: 'row'
     },
     text: {
         color: props.textColor,
